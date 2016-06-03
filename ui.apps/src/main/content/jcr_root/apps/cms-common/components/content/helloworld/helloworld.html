@@ -15,7 +15,7 @@
 */-->
 <p data-sly-test="${properties.text}">Text property: ${properties.text}</p>
 
-<pre data-sly-use.hello="com.padma.aem.core.models.HelloWorldModel">
-HelloWorldModel says:
-${hello.message}
+<pre data-sly-use.hello="com.padma.aem.core.use.HelloWorldUse">
+    HelloWorldUse says: ${hello.message}
+    <p data-sly-test="${hello.text}">Text model: ${hello.text}</p>
 </pre>
