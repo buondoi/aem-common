@@ -15,39 +15,39 @@
  */
 package com.padma.aem.it.tests;
 
-import static org.junit.Assert.assertNotNull;
-import static org.junit.Assert.assertTrue;
-
+import com.padma.aem.core.model.HelloWorldModel;
 import org.apache.sling.junit.annotations.SlingAnnotationsTestRunner;
 import org.apache.sling.junit.annotations.TestReference;
 import org.apache.sling.settings.SlingSettingsService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import com.padma.aem.core.models.HelloWorldModel;
 
-/** 
- *  Test case which uses OSGi services injection
- *  to get hold of the HelloWorldModelServerSideTest which 
- *  it wants to test server-side. 
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+
+
+/**
+ * Test case which uses OSGi services injection
+ * to get hold of the HelloWorldModelServerSideTest which
+ * it wants to test server-side.
  */
 @RunWith(SlingAnnotationsTestRunner.class)
-public class HelloWorldModelServerSideTest {
+public class HelloWorldModelServerSideTest
+{
+	@TestReference
+	private HelloWorldModel hello;
 
-    @TestReference
-    private HelloWorldModel hello;
+	@TestReference
+	private SlingSettingsService settings;
 
-    @TestReference
-    private SlingSettingsService settings;
+	@Test
+	public void testHelloWorldModelServerSide() throws Exception
+	{
+		assertNotNull("Expecting HelloWorldModel to be injected by Sling test runner", hello);
 
-    @Test
-    public void testHelloWorldModelServerSide() throws Exception {
-        assertNotNull(
-                "Expecting HelloWorldModel to be injected by Sling test runner",
-                hello);
+		assertNotNull("Expecting the sling settings to be injected by Sling test runner", settings);
 
-        assertNotNull("Expecting the slingsettings to be injected by Sling test runner", settings);
-
-        assertTrue("Expecting the HelloWorldModel to return the slingId as part of the message", 
-                hello.getMessage().contains(settings.getSlingId()));
-    }
+		assertTrue("Expecting the HelloWorldModel to return the slingId as part of the message",
+				hello.getMessage().contains(settings.getSlingId()));
+	}
 }

@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package com.padma.aem.core.models;
+package com.padma.aem.core.model;
 
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.Default;

@@ -13,7 +13,7 @@
  *  See the License for the specific language governing permissions and
  *  limitations under the License.
  */
-package com.padma.aem.core.models;
+package com.padma.aem.core.model;
 
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
