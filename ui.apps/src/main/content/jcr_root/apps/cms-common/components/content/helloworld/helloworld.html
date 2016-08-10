@@ -19,3 +19,7 @@
     HelloWorldUse says: ${hello.message}
     <p data-sly-test="${hello.text}">Text model: ${hello.text}</p>
 </pre>
+
+<pre data-sly-use.helloModel="com.padma.aem.core.model.HelloWorldModel">
+    <p>Hello ${helloModel.message}</p>
+</pre>

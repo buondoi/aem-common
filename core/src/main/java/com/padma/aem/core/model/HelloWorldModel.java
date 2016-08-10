@@ -15,6 +15,7 @@
  */
 package com.padma.aem.core.model;
 
+import com.padma.aem.core.sling.injector.HelloWorld;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.Model;
@@ -38,10 +39,15 @@ public class HelloWorldModel
 
 	private String message;
 
+	@Inject
+	@HelloWorld
+	protected String helloMessage;
+
 	@PostConstruct
 	protected void init()
 	{
 		message = "\tHello World!\n";
+		message += helloMessage + "\n";
 		message += "\tThis is instance: " + settings.getSlingId() + "\n";
 		message += "\tResource type is: " + resourceType + "\n";
 	}
