@@ -135,3 +135,5 @@ fabric.properties
 hs_err_pid*
 .idea/
 *.iml
+
+.brackets.json
