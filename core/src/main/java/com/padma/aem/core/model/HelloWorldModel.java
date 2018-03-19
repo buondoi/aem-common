@@ -16,44 +16,40 @@
 package com.padma.aem.core.model;
 
 import com.padma.aem.core.sling.injector.HelloWorld;
+import javax.annotation.PostConstruct;
+import javax.inject.Inject;
+import javax.inject.Named;
 import org.apache.sling.api.resource.Resource;
 import org.apache.sling.models.annotations.Default;
 import org.apache.sling.models.annotations.Model;
 import org.apache.sling.settings.SlingSettingsService;
 
-import javax.annotation.PostConstruct;
-import javax.inject.Inject;
-import javax.inject.Named;
-
 
 @Model(adaptables = Resource.class)
-public class HelloWorldModel
-{
-	@Inject
-	private SlingSettingsService settings;
+public class HelloWorldModel {
+    @Inject
+    private SlingSettingsService settings;
 
-	@Inject
-	@Named("sling:resourceType")
-	@Default(values = "No resourceType")
-	protected String resourceType;
+    @Inject
+    @Named("sling:resourceType")
+    @Default(values = "No resourceType")
+    protected String resourceType;
 
-	private String message;
+    private String message;
 
-	@Inject
-	@HelloWorld
-	protected String helloMessage;
+    @Inject
+    @HelloWorld
+    protected String helloMessage;
 
-	@PostConstruct
-	protected void init()
-	{
-		message = "\tHello World!\n";
-		message += helloMessage + "\n";
-		message += "\tThis is instance: " + settings.getSlingId() + "\n";
-		message += "\tResource type is: " + resourceType + "\n";
-	}
+    @PostConstruct
+    protected void init() {
+        message = "\tHello World!\n";
+        message += helloMessage + "\n";
+        message += "\tThis is instance: " + settings.getSlingId() + "\n";
+        message += "\tResource type is: " + resourceType + "\n";
+    }
 
-	public String getMessage()
-	{
-		return message;
-	}
+    public String getMessage() {
+        return message;
+    }
 }

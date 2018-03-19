@@ -9,9 +9,8 @@ import java.lang.annotation.Target;
 /**
  * Created on 8/10/16.
  */
-@Target({ ElementType.METHOD, ElementType.CONSTRUCTOR, ElementType.FIELD })
+@Target( {ElementType.METHOD, ElementType.CONSTRUCTOR, ElementType.FIELD})
 @Retention(RetentionPolicy.RUNTIME)
-public @interface HelloWorld
-{
+public @interface HelloWorld {
 
 }

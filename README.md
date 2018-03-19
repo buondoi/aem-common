@@ -1,4 +1,4 @@
 # AEM common
 
-- spockframework for unit tests
+- spock-framework for unit tests
 - Enable Jacoco code coverage

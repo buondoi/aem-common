@@ -14,21 +14,18 @@ import org.apache.sling.api.adapter.AdapterFactory;
  */
 @Component
 @Service
-public class Request2PageAdapter implements AdapterFactory
-{
-	@Property(name = "adapters")
-	public static final String[] ADAPTER_CLASSES = { Page.class.getName() };
+public class Request2PageAdapter implements AdapterFactory {
+    @Property(name = "adapters")
+    public static final String[] ADAPTER_CLASSES = {Page.class.getName()};
 
-	@Property(name = "adaptables")
-	public static final String[] ADAPTABLE_CLASSES = { SlingHttpServletRequest.class.getName() };
+    @Property(name = "adaptables")
+    public static final String[] ADAPTABLE_CLASSES = {SlingHttpServletRequest.class.getName()};
 
-	@Override
-	public <AdapterType> AdapterType getAdapter(final Object adaptable, final Class<AdapterType> type)
-	{
-		if (adaptable instanceof SlingHttpServletRequest && Page.class.isAssignableFrom(type))
-		{
-			// TODO convert request to page.
-		}
-		return null;
-	}
+    @Override
+    public <AdapterType> AdapterType getAdapter(final Object adaptable, final Class<AdapterType> type) {
+        if (adaptable instanceof SlingHttpServletRequest && Page.class.isAssignableFrom(type)) {
+            // TODO convert request to page.
+        }
+        return null;
+    }
 }
